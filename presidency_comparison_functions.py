@@ -52,16 +52,16 @@ def visual(df, kind=None, double=False): # double = True implies double standard
         )
 
         g.map(sns.lineplot, "Year", "Tariff", marker="o")
-        g.set_titles("{col_name}", fontsize=10)
+        g.set_titles("{col_name}", fontsize=9)
         g.set_axis_labels("Year", "Standardized Tariff Level")
 
         plt.subplots_adjust(top=0.92)
-        g.fig.suptitle('Tariffs evolution over the years per NAICS (note: double standardization is applied)', fontweight="bold", fontsize=11)
+        g.fig.suptitle('Tariffs evolution over the years per NAICS (note: double standardization is applied)', fontweight="bold", fontsize=10)
         # g.savefig("faceted_lineplots.png", dpi=300)
 
         for ax in g.axes.flatten():
-            ax.axvline(x=2021, color="orange", linestyle="--", linewidth=1)
-            ax.axvline(x=2022, color="green", linestyle="--", linewidth=1)
+            ax.axvline(x=2021, color="orange", linestyle="--", linewidth=1) # presidency change
+            ax.axvline(x=2022, color="green", linestyle="--", linewidth=1) # Ukraine war
         plt.savefig('faceted_lineplots.png', dpi=300)
         plt.show()
 
